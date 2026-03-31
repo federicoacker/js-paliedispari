@@ -60,7 +60,10 @@ function numberGenerator(maxValue = 1){ // Funzione che genera un numero a caso,
     }
     //Poi creeremo una variabile che verrà inizializata con una formula di Math.random che rispecchi ciò che vogliamo come funzionamento
     //In questo caso, un bel Math.floor(Math.random() * maxValue) + 1; dovrebbe proprio darci tutti i numeri casuali da 1 a maxValue
-    const randomNumber = Math.floor(Math.random() * maxValue) + 1;
+    const randomNumber = Math.floor(Math.random() * Number(maxValue)) + 1; //Qui facciamo il casting a Number di maxValue 
+    // nel caso in cui ci sia passato come stringa ma contenga solo un numero, ce ne siamo assicurati con il check di prima
+    // In teoria è superfluo fare il casting perché essendoci un * la stringa verrebbe in automatico castata a Number se possibile.
+    // Però meglio specificarlo per chiarezza.
     //A questo punto lo restituiremo.
     return randomNumber;
 }
