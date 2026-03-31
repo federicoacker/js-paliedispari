@@ -67,3 +67,11 @@ function numberGenerator(maxValue = 1){ // Funzione che genera un numero a caso,
     //A questo punto lo restituiremo.
     return randomNumber;
 }
+
+function askUser (messageString){
+    let answer = "";
+    let isPromptAnswered = false;
+    while(!isPromptAnswered){
+
+    }
+}
