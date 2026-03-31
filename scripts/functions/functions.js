@@ -68,10 +68,16 @@ function numberGenerator(maxValue = 1){ // Funzione che genera un numero a caso,
     return randomNumber;
 }
 
-function askUser (messageString){
-    let answer = "";
-    let isPromptAnswered = false;
-    while(!isPromptAnswered){
-
+function askUser (messageString){ // Funzione che gestisce il ciclo di richiesta all'utente, non fa alcuna validazione della risposta
+    //Se non controllare che essa non sia vuota.
+    let answer = ""; // Variabile per la risposta
+    let isPromptAnswered = false; // Flag per gestire il ciclo
+    while(!isPromptAnswered){ // Finché la flag è falsa
+        answer = prompt(messageString); // Chiedi all'utente la nostra stringa di messaggio ricevuta come argomento e assegna il risultato a answer
+        if(answer.length !== 0){ // Se la lunghezza di answere è !== 0
+            isPromptAnswered = true; // Setta la flag a true ed esci dal ciclo
+        }
     }
+
+    return answer; // Ritorna la risposta.
 }
