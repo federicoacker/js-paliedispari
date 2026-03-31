@@ -43,7 +43,9 @@ function isPalindrome (stringToCheck){ // Funzione che controlla se una stringa 
 
 
 function evenOrOdd (numberToCheck){ // Funzione che restituirà 1 se il numero è dispari o 0 se il numero è pari o -1 se non ha ricevuto un numero.
-
+    //Prima cosa da fare, un controllo per vedere se il valore passato è effettivamente un numero.
+    //Poi posso fare il controllo semplicemente con un modulo e restituire il valore del modulo. 
+    // (Ti viene da chiederti se a sto punto non era più intelligente usare direttamente il modulo).
 }
 
 function numberGenerator(maxValue = 1){ // Funzione che genera un numero a caso, basandosi sul maxValue che gli viene passato, default 1, e lo restituisce.
