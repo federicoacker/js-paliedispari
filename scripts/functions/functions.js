@@ -54,5 +54,8 @@ function evenOrOdd (numberToCheck){ // Funzione che restituirà 1 se il numero �
 }
 
 function numberGenerator(maxValue = 1){ // Funzione che genera un numero a caso, basandosi sul maxValue che gli viene passato, default 1, e lo restituisce.
-
+    //Allora prima cosa, un controllo per vedere che maxValue sia un numero, se non lo è, restituiremo 0 come risultato sempre.
+    //Poi creeremo una variabile che verrà inizializata con una formula di Math.random che rispecchi ciò che vogliamo come funzionamento
+    //In questo caso, un bel Math.floor(Math.random() * maxValue) + 1; dovrebbe proprio darci tutti i numeri casuali da 1 a maxValue
+    //A questo punto lo restituiremo.
 }
