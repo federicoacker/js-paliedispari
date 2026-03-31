@@ -40,3 +40,12 @@ function isPalindrome (stringToCheck){ // Funzione che controlla se una stringa 
     //Restituirò il risultato
     return !isMismatchFound; //Restituisco l'opposto della flag che ci dice che le lettere non combaciano.
 }
+
+
+function evenOrOdd (numberToCheck){ // Funzione che restituirà 1 se il numero è dispari o 0 se il numero è pari o -1 se non ha ricevuto un numero.
+
+}
+
+function numberGenerator(maxValue = 1){ // Funzione che genera un numero a caso, basandosi sul maxValue che gli viene passato, default 1, e lo restituisce.
+
+}
