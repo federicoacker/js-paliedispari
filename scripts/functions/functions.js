@@ -2,6 +2,7 @@ function isPalindrome (stringToCheck){ // Funzione che controlla se una stringa 
 // restituisce -1 se ciò che è stato inserito non è una stringa o è una stringa vuota. 
     //Innanzitutto farò un controllo per vedere se ciò che è stato inserito è una stringa o è vuota
     if(typeof(stringToCheck) !== "string" || stringToCheck === ""){
+        console.log("C'è stato un errore nel controllo della stringa inserita, forse hai utilizzato male la funzione isPalindrome()?");
         return -1;
     }
 
@@ -68,16 +69,33 @@ function numberGenerator(maxValue = 1){ // Funzione che genera un numero a caso,
     return randomNumber;
 }
 
-function askUser (messageString){ // Funzione che gestisce il ciclo di richiesta all'utente, non fa alcuna validazione della risposta
-    //Se non controllare che essa non sia vuota.
-    let answer = ""; // Variabile per la risposta
-    let isPromptAnswered = false; // Flag per gestire il ciclo
-    while(!isPromptAnswered){ // Finché la flag è falsa
-        answer = prompt(messageString); // Chiedi all'utente la nostra stringa di messaggio ricevuta come argomento e assegna il risultato a answer
-        if(answer.length !== 0){ // Se la lunghezza di answere è !== 0
-            isPromptAnswered = true; // Setta la flag a true ed esci dal ciclo
+function askUserGenerator (typeString){ // Funzione generatrice, restituisce la funzione corretta per chiedere all'utente a seconda della typeString
+    if(typeString === "string"){ // Versione per i prompt che vogliono una stringa
+        return function askUser(messageString){ // Ritorno la funzione askUser che accetta una messageString
+            let answer = ""; // Variabile per la risposta
+            let isPromptAnswered = false; // Flag per gestire il ciclo
+            while(!isPromptAnswered){ // Finché la flag è falsa
+                answer = prompt(messageString); // Chiedi all'utente la nostra stringa di messaggio ricevuta come argomento e assegna il risultato a answer
+                if(answer.length !== 0){ // Se la lunghezza di answere è !== 0
+                    isPromptAnswered = true; // Setta la flag a true ed esci dal ciclo
+                }
+            }
+        
+            return answer; // Ritorna la risposta.
         }
     }
+    else if(typeString === "number"){ // Versione se voglio un number
+        return function askUser(messageString){ // Ritorno la funzione askUser che accetta una messageString ma stavolta lei ritornerà un numero
+            let answer = 0; // Viariabile per la risposta
+            let isPromptAnswered = false; // Flag per gestire il ciclo
+            while(!isPromptAnswered){ // Finché la flag è falsa
+                answer = Number(prompt(messageString)); // La risposta sarà uguale a ciò che ci ritorna il prompt ma castato come numero
+                if(!isNaN(answer)){ // Se la risposta non è NaN
+                    isPromptAnswered = true; // Mettiamo la flag a true e usciamo dal ciclo
+                }
+            }
 
-    return answer; // Ritorna la risposta.
+            return answer; // Ritorniamo la risposta
+        }
+    }
 }
