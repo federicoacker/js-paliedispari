@@ -1,10 +1,42 @@
-function isPalindrome (stringToCheck){ // Funzione che controlla se una stringa inserita è palindroma
-    //Innanzitutto farò un controllo per vedere se ciò che è stato inserito è una stringa
+function isPalindrome (stringToCheck){ // Funzione che controlla se una stringa inserita è palindroma e restituisce true o false,
+// restituisce -1 se ciò che è stato inserito non è una stringa o è una stringa vuota. 
+    //Innanzitutto farò un controllo per vedere se ciò che è stato inserito è una stringa o è vuota
+    if(typeof(stringToCheck) !== "string" || stringToCheck === ""){
+        return -1;
+    }
+
+    stringToCheck = stringToCheck.toLowerCase(); // Trasformo in lowercase la stringa in modo che i controlli siano giusti
+
+    let isMismatchFound = false; // Flag per controllare se abbiamo trovato due lettere diverse ai lati opposti della stringa (quindi la parola non è palindroma)
 
     //Dopo il controllo si passerà al ciclo for che controllerà se la stringa è palindroma
     //Sto pensando magari 1 solo ciclo, 2 iteratori, uno dall'inizio della stringa, 
     // uno dalla fine che controllano lettere a lati opposti della stringa fino a incontrarsi a metà.
 
-    //Restituirò il risultato
+    const halfIndexLower = Math.floor(stringToCheck.length/2); // Metà lunghezza inferiore
+    const halfIndexUpper = Math.ceil(stringToCheck.length/2); // Metà lunghezza superiore
 
+    //Li calcoliamo così per un motivo semplice, se la parola è fatta da un numero pari di lettere, ad esempio 6,
+    // allora entrambi punteranno a indice 3 che è il quarto elemento, quindi il ciclo controllerà 
+    // stringa[0] con stringa[5] 
+    // stringa[1] con stringa[4]
+    // stringa[2] con stringa[3] 
+    // e si fermerà.
+    // Se invece, la parola dovesse avere lunghezza dispari, tipo 7.
+    // Allora halfIndexLower sarà 3, e halfIndexUpper sarà 4. 
+    // Quindi il nostro ciclo controllerà:
+    // stringa[0] con stringa[6]
+    // stringa[1] con stringa[5]
+    // stringa[2] con stringa[4]
+    // E resterà in mezzo stringa 3 che non verrà controllata perché tanto sarebbe la stessa sia per i che per j nel ciclo
+    
+    for(let i = 0, j = stringToCheck.length-1; i<halfIndexLower && j>=halfIndexUpper && !isMismatchFound; i++, j--){ // Ciclo che itera i a salire da 0 alla metà della stringa e j a scendere dalla fine alla metà(inclusa) della stringa;
+        const charFromStart = stringToCheck[i]; // Variabile di supporto: il carattere i-esimo
+        const charFromEnd = stringToCheck[j]; // Variabile di supporto: il carattere j-esimo;
+        if(charFromStart !== charFromEnd){ // Se i due valori sono diversi
+            isMismatchFound = true; // Mettiamo la flag a true che ci fa uscire dal ciclo
+        }
+    }
+    //Restituirò il risultato
+    return !isMismatchFound; //Restituisco l'opposto della flag che ci dice che le lettere non combaciano.
 }
