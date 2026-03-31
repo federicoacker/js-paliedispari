@@ -94,7 +94,6 @@ function askUserGenerator (typeString){ // Funzione generatrice, restituisce la 
                     isPromptAnswered = true; // Mettiamo la flag a true e usciamo dal ciclo
                 }
             }
-
             return answer; // Ritorniamo la risposta
         }
     }
