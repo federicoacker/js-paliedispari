@@ -1,5 +1,5 @@
 // ESERCIZIO 1 //
-const palindromeString = askUserGenerator("string")("Inserisci una parola che vuoi controllare sia Palindroma");
+const palindromeString = (askUserGenerator("string"))("Inserisci una parola che vuoi controllare sia Palindroma");
 const isStringPalindrome = isPalindrome(palindromeString);
 
 if(isStringPalindrome !== -1){
