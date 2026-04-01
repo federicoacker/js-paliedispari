@@ -35,7 +35,7 @@ let isAskNumberCorrect = false; // flag booleana per controllare che il numero i
 while(!isAskEvenOrOddCorrect) // Controllo che l'utente abbia inserito o pari o dispari
 {
     askEvenOrOdd = askEvenOrOddFunction("Inserisci pari o dispari");
-    if(!(askEvenOrOdd.toLowerCase() === "pari" || askEvenOrOdd.toLowerCase() === "dispari")){
+    if(!(askEvenOrOdd.toLowerCase().replaceAll(" ", "") === "pari" || askEvenOrOdd.toLowerCase().replaceAll(" ", "") === "dispari")){
         console.log("Non hai inserito pari o dispari nel prompt, riprova");
     }else{
         isAskEvenOrOddCorrect = true;
