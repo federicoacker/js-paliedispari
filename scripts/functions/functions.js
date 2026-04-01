@@ -6,7 +6,7 @@ function isPalindrome (stringToCheck){ // Funzione che controlla se una stringa 
         return -1;
     }
 
-    stringToCheck = stringToCheck.toLowerCase().trim(); // Trasformo in lowercase la stringa in modo che i controlli siano giusti
+    stringToCheck = stringToCheck.toLowerCase().trim().replaceAll(" ", ''); // Trasformo in lowercase la stringa in modo che i controlli siano giusti
 
     let isMismatchFound = false; // Flag per controllare se abbiamo trovato due lettere diverse ai lati opposti della stringa (quindi la parola non è palindroma)
 
