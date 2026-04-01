@@ -61,9 +61,13 @@ const evenOrOddNumber = evenOrOdd(sum); // Uso la funzione per vedere se è pari
 
 if(evenOrOddNumber === 1){ // Se dispari
     console.log(`La somma di ${askNumber} e ${generatedNumber} è ${sum} che è dispari`); // comunico il risultato
+    (askEvenOrOdd.toLowerCase() === "pari") && (winner = "Il computer"); // Controllo se avevamo inserito pari, se si, vince il computer
+    (askEvenOrOdd.toLowerCase() === "dispari") && (winner = "L'utente"); // Controllo se avevamo inserito dispari, se si, vince l'utente
 }
 else if(evenOrOddNumber === 0){// Se pari
     console.log(`La somma di ${askNumber} e ${generatedNumber} è ${sum} che è pari`); // comunico il risultato
+    (askEvenOrOdd.toLowerCase() === "pari") && (winner = "L'utente"); // Controllo se avevamo inserito pari, se si vince l'utente
+    (askEvenOrOdd.toLowerCase() === "dispari") && (winner = "Il computer"); // Controllo se avevamo inserito dispari, se si vince il computer
 }
 else{// caso limite, la funzione potrebbe restituire -1 se c'è stato un errore 
 // nel trattamento dei dati fino ad'ora e per un motivo o per un altro, è stata mandata una stringa di testo a questa funzione. 
@@ -71,15 +75,6 @@ else{// caso limite, la funzione potrebbe restituire -1 se c'è stato un errore
     console.error(`C'è stato un errore nella funzione per il controllo di pari e dispari, vai a controllarla`);
 }
 
-//Controlliamo se aveva ragione il player
-if(askEvenOrOdd.toLowerCase() === "pari"){ // Se il player aveva inserito che è pari
-    (evenOrOddNumber === 0) && (winner = "L'utente"); // Se è uscito effettivamente pari allora vince l'utente
-    (evenOrOddNumber === 1) && (winner = "Il computer"); // Altrimenti il computer
-}
-else if(askEvenOrOdd.toLowerCase() === "dispari"){// Se il player aveva inserito che è dispari
-    (evenOrOddNumber === 0) && (winner = "Il computer"); // Se è uscito pari vince il computer
-    (evenOrOddNumber === 1) && (winner = "L'utente"); // altrimenti l'utente
-}
 //Comunichiamo il risultato in console
 console.log(`L'utente aveva provato a indovinare ${askEvenOrOdd}`);
 console.log(`
