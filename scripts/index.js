@@ -18,7 +18,6 @@ else{ //Questo viene loggato solo
 const MAX_VALUE = 10; //Massimo valore per l'utente da inserire
 const MIN_VALUE = 1; //Minimo valore per l'utente da inserire
 const askEvenOrOddFunction = askUserGenerator("string"); // La funzione che chiederà pari o dispari all'utente
-const askNumberFunction = askUserGenerator("number"); // La funzione che chiederà il numero all'utente
 
 let winner = ""; // La stringa in cui salveremo il vincitore del piccolo gioco
 let isAskEvenOrOddCorrect = false; // Flag booleana per controllare che la stringa inserita sia effettivamente "pari" o "dispari"
@@ -42,6 +41,8 @@ while(!isAskEvenOrOddCorrect) // Controllo che l'utente abbia inserito o pari o 
         isAskEvenOrOddCorrect = true;
     }
 }
+
+const askNumberFunction = askUserGenerator("number"); // La funzione che chiederà il numero all'utente
 
 while(!isAskNumberCorrect){ // Controllo che l'utente abbia inserito un numero tra 1 e 10
     askNumber = askNumberFunction("Inserisci un valore da 1 a 10");
