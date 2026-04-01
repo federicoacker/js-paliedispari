@@ -97,4 +97,8 @@ function askUserGenerator (typeString){ // Funzione generatrice, restituisce la 
             return answer; // Ritorniamo la risposta
         }
     }
+    else{
+        console.error("Passato valore non valito a askUserGenerator(), Accetta solo 'string' o 'number'");
+        return undefined;
+    }
 }
